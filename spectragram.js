@@ -111,6 +111,7 @@ if (typeof Object.create !== 'function') {
             }
             else {
 				for (var i = 0; i < max; i++) {
+					captionText = jQuery.isEmptyObject(results.data[i].caption) ? "" : results.data[i].caption.text
 					if (setSize == "small") {
 						size = results.data[i].images.thumbnail.url;
 					}
@@ -120,7 +121,7 @@ if (typeof Object.create !== 'function') {
 					else {
 						size = results.data[i].images.standard_resolution.url;
 					}
-					self.$elem.append($(self.options.wrapEachWith).append("<a title='" + results.data[i].caption.text + "' target='_blank' href='" + results.data[i].link + "'><img src='" + size + "'></img></a>"));
+					self.$elem.append($(self.options.wrapEachWith).append("<a title='" + captionText + "' target='_blank' href='" + results.data[i].link + "'><img src='" + size + "'></img></a>"));
 				}
             }
 			
